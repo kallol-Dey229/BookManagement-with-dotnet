@@ -1,0 +1,59 @@
+﻿
+ 
+
+@{
+}
+@model BLL.DTOs.CategoryDTO
+
+<h2>Add Category</h2>
+
+<form asp-action="Create" asp-controller="Category" method="post">
+
+    <input class="form-control"
+           type="text"
+           asp-for="Name"
+           placeholder="Category Name" />
+
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+    <br />
+
+    <input class="btn btn-primary"
+           type="submit"
+           value="Submit" />
+
+    <a asp-controller="Category"
+       asp-action="Index"
+       class="btn btn-dark">
+        Back
+    </a>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div style="
+    background-image:url('https://media.istockphoto.com/id/1503372066/photo/many-books-stacked-with-blurred-background-of-bookstore-full-of-books-photo-with-copyspace.jpg?b=1&s=1024x1024&w=0&k=20&c=PqcCob_mKlHlwxDWIEno-U5JcG5E3DJUanx9v2WbW18=');
+    background-size:cover;
+    background-position:center;
+    height:100vh;
+    position:relative;
+">
+
+    <!-- Dark Overlay -->
+    <div style="
+        background-color:rgba(0,0,0,0.6);
+        height:100%;
+        width:100%;
+        position:absolute;
+        top:0;
+        left:0;
+    ">
+
+        <!-- Content -->
+        <div class="d-flex flex-column justify-content-center align-items-center text-white"
+             style="height:100%;">
+
+            <h1 style="
+                font-size:70px;
+                font-weight:bold;
+                text-shadow:2px 2px 10px black;">
+                Book Store
+            </h1>
+
+            <p style="
+                font-size:24px;
+                margin-top:15px;
+                text-shadow:1px 1px 5px black;">
+                Manage Your Books & Categories Easily
+            </p>
+
+            <div class="mt-4">
+
+                <a asp-controller="User"
+                   asp-action="Login"
+                   class="btn btn-primary btn-lg me-3 px-4">
+                    Login
+                </a>
+
+                <a asp-controller="User"
+                   asp-action="Register"
+                   class="btn btn-success btn-lg px-4">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

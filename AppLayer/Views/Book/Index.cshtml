@@ -1,0 +1,66 @@
+﻿@model List<BLL.DTOs.BookDTO>
+
+<h2 class="mb-4">Book List</h2>
+
+<div class="row">
+
+    @foreach (var b in Model)
+    {
+        <div class="col-md-4 mb-4">
+
+            <div class="card h-100 shadow">
+
+                <img src="@b.Image"
+                     class="card-img-top"
+                     style="height:250px; object-fit:contain;;" />
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        @b.Title
+                    </h5>
+
+                    <p class="card-text">
+                        <strong>Price:</strong> @b.Price Tk
+                    </p>
+
+                    <p class="card-text">
+                        <strong>Category:</strong> @b.Cid
+                    </p>
+
+                </div>
+
+                <div class="card-footer">
+
+                    <a asp-action="Edit"
+                       asp-route-id="@b.Id"
+                       class="btn btn-outline-secondary">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@b.Id"
+                       class="btn btn-danger">
+                        Delete
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>
+
+
+<a asp-action="Create"
+   class="btn btn-success">
+    Add Book
+</a>
+
+<a asp-controller="Category"
+   asp-action="Index"
+   class="btn btn-dark">
+    Back to Category List
+</a>

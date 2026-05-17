@@ -1,0 +1,50 @@
+﻿@model BLL.DTOs.BookDTO
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label>Title</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label>Price</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label>Category Id</label>
+        <input asp-for="Cid" class="form-control" />
+    </div>
+
+    <br />
+
+    <!-- NEW -->
+    <div class="form-group">
+        <label>Image URL</label>
+        <input asp-for="Image" class="form-control" />
+    </div>
+
+    <br />
+
+    
+
+    <div>
+        <button type="submit" class="btn btn-primary">
+            Update
+        </button>
+
+        <a asp-controller="Book"
+           asp-action="Index"
+           class="btn btn-dark">
+            Back
+        </a>
+    </div>
+
+</form>

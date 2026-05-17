@@ -1,0 +1,27 @@
+﻿@model BLL.DTOs.CategoryDTO
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <input class="form-control"
+           type="text"
+           asp-for="Name"
+           placeholder="Name" />
+
+    <span asp-validation-for="Name"
+          class="text-danger"></span>
+
+    <br />
+
+    <input class="btn btn-success"
+           type="submit"
+           value="Update" />
+
+    <a asp-controller="Category"
+       asp-action="Index"
+       class="btn btn-dark">
+        Back
+    </a>
+
+</form>

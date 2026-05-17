@@ -1,0 +1,47 @@
+﻿@model BLL.DTOs.LoginDTO
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div style="width:400px; margin:auto; margin-top:80px; padding:30px; border:1px solid #ccc; border-radius:10px; box-shadow:0px 0px 10px lightgray;">
+
+    <h2 style="text-align:center;">Login</h2>
+
+    <form asp-action="Login" method="post">
+
+        <div style="margin-bottom:15px;">
+            <label>Email</label>
+            <input asp-for="Email"
+                   class="form-control"
+                   placeholder="Enter Email" />
+        </div>
+
+        <div style="margin-bottom:20px;">
+            <label>Password</label>
+            <input asp-for="Password"
+                   type="password"
+                   class="form-control"
+                   placeholder="Enter Password" />
+        </div>
+
+        <button type="submit"
+                class="btn btn-primary w-100">
+            Login
+        </button>
+
+    </form>
+
+    <p style="color:red; text-align:center;">
+        @ViewBag.Msg
+    </p>
+
+    <div style="text-align:center; margin-top:20px;">
+        Don't have any account?
+        <a asp-controller="User"
+           asp-action="Register">
+            Register
+        </a>
+    </div>
+
+</div>
