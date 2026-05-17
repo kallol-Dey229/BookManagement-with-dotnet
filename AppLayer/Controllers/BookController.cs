@@ -14,9 +14,19 @@ namespace AppLayer.Controllers
         }
 
         // EVERYONE CAN SEE BOOKS
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            var data = bookService.Get();
+            var data = new List<BookDTO>();
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                data = bookService.Search(search);
+            }
+            else
+            {
+                data = bookService.Get();
+            }
+
             return View(data);
         }
 

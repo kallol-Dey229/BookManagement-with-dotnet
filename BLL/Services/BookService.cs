@@ -1,11 +1,4 @@
-﻿//using AutoMapper;
-//using BLL.DTOs;
-//using DAL.Repos;
-//using System;
-//using System.Collections.Generic;
-
-
-
+﻿
 
 using AutoMapper;
 using BLL.DTOs;
@@ -57,6 +50,14 @@ namespace BLL.Services
         public bool Delete(int id)
         {
             return repo.Delete(id);
+        }
+
+
+        public List<BookDTO> Search(string text)
+        {
+            var data = repo.Search(text);
+
+            return mapper.Map<List<BookDTO>>(data);
         }
     }
 }

@@ -57,7 +57,7 @@ namespace AppLayer.Controllers
                 {
                     HttpContext.Session.SetString("Role", user.Role);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Category");
                 }
 
                 ViewBag.Msg = "Invalid Email or Password";

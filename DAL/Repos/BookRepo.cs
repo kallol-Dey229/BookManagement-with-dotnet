@@ -27,11 +27,6 @@ namespace DAL.Repos
 
 
 
-
-
-
-        //.......................
-
         public Book Get(int id)
         {
             return db.Books.Find(id);
@@ -55,6 +50,11 @@ namespace DAL.Repos
             db.Books.Remove(book);
 
             return db.SaveChanges() > 0;
+        }
+
+        public List<Book> Search(string text)
+        {
+            return db.Books.Where(b => b.Title.Contains(text)).ToList();
         }
 
     }

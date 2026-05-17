@@ -1,6 +1,25 @@
 ﻿@model List<BLL.DTOs.BookDTO>
 
 <h2 class="mb-4">Book List</h2>
+<form method="get"
+      asp-action="Index"
+      class="mb-4">
+
+    <div class="d-flex">
+
+        <input type="text"
+               name="search"
+               class="form-control me-2"
+               placeholder="Search Book..." />
+
+        <button type="submit"
+                class="btn btn-primary">
+            Search
+        </button>
+
+    </div>
+
+</form>
 
 <div class="row">
 
@@ -8,10 +27,10 @@
     {
         <div class="col-md-4 mb-4">
 
-            <div class="card h-100 shadow">
+            <div class="card shadow">
 
                 <img src="@b.Image"
-                     class="card-img-top"
+                     class="card-img-top mt-3"
                      style="height:250px; object-fit:contain;;" />
 
                 <div class="card-body">
@@ -28,7 +47,20 @@
                         <strong>Category:</strong> @b.Cid
                     </p>
 
+                    @if (Context.Session.GetString("Role") == "User")
+                    {
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-info">
+                                Add To Cart
+                            </a>
+                        </div>
+                    }
+
                 </div>
+
+                
+
+                
 
                 <div class="card-footer">
                     @if (Context.Session.GetString("Role") == "Admin")
