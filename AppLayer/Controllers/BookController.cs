@@ -1,7 +1,4 @@
-﻿
-
-
-using BLL.DTOs;
+﻿using BLL.DTOs;
 using BLL.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,27 +13,38 @@ namespace AppLayer.Controllers
             this.bookService = bookService;
         }
 
-        // GET: Show all books
+        // EVERYONE CAN SEE BOOKS
         public ActionResult Index()
         {
             var data = bookService.Get();
             return View(data);
         }
 
-        // GET: Show create form
+        // ================= CREATE =================
+
         [HttpGet]
         public ActionResult Create()
         {
+            // ONLY ADMIN
+            if (HttpContext.Session.GetString("Role") != "Admin")
+            {
+                return RedirectToAction("Index");
+            }
+
             return View();
         }
 
-        // POST: Save book
         [HttpPost]
         public ActionResult Create(BookDTO b)
         {
+            // ONLY ADMIN
+            if (HttpContext.Session.GetString("Role") != "Admin")
+            {
+                return RedirectToAction("Index");
+            }
+
             if (ModelState.IsValid)
             {
-                // call service create method
                 var result = bookService.Create(b);
 
                 if (result)
@@ -48,29 +56,31 @@ namespace AppLayer.Controllers
             return View(b);
         }
 
-
-
-
-
-
-
-
-
-
-
-
-        //......................
+        // ================= EDIT =================
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
+            // ONLY ADMIN
+            if (HttpContext.Session.GetString("Role") != "Admin")
+            {
+                return RedirectToAction("Index");
+            }
+
             var data = bookService.Get(id);
+
             return View(data);
         }
 
         [HttpPost]
         public ActionResult Edit(BookDTO b)
         {
+            // ONLY ADMIN
+            if (HttpContext.Session.GetString("Role") != "Admin")
+            {
+                return RedirectToAction("Index");
+            }
+
             if (ModelState.IsValid)
             {
                 var result = bookService.Update(b);
@@ -84,13 +94,16 @@ namespace AppLayer.Controllers
             return View(b);
         }
 
+        // ================= DELETE =================
 
-
-
-
-        //......................
         public ActionResult Delete(int id)
         {
+            // ONLY ADMIN
+            if (HttpContext.Session.GetString("Role") != "Admin")
+            {
+                return RedirectToAction("Index");
+            }
+
             bookService.Delete(id);
 
             return RedirectToAction("Index");

@@ -22,5 +22,8 @@ namespace BLL.DTOs
         [Required(ErrorMessage = "Confirm Password is required")]
         [PasswordMatch]
         public string? ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "Role is not selected")]
+        public string Role { get; set; }
     }
 }

@@ -17,6 +17,9 @@ builder.Services.AddScoped<BookService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<UserService>();
 
+
+
+
 //mapper
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 
@@ -24,7 +27,10 @@ builder.Services.AddDbContext<BookManagementContext>(opt => {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConn"));
 });
 
+builder.Services.AddSession();
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -36,6 +42,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+//
+app.UseSession();
 
 app.UseAuthorization();
 
