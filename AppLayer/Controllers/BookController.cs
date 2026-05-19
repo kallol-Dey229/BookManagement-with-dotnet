@@ -13,7 +13,7 @@ namespace AppLayer.Controllers
             this.bookService = bookService;
         }
 
-        // EVERYONE CAN SEE BOOKS
+        
         public ActionResult Index(string search)
         {
             var data = new List<BookDTO>();
@@ -30,12 +30,12 @@ namespace AppLayer.Controllers
             return View(data);
         }
 
-        // ================= CREATE =================
+        
 
         [HttpGet]
         public ActionResult Create()
         {
-            // ONLY ADMIN
+           
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");
@@ -47,7 +47,7 @@ namespace AppLayer.Controllers
         [HttpPost]
         public ActionResult Create(BookDTO b)
         {
-            // ONLY ADMIN
+           
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");
@@ -66,12 +66,12 @@ namespace AppLayer.Controllers
             return View(b);
         }
 
-        // ================= EDIT =================
+        
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            // ONLY ADMIN
+            
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");
@@ -85,7 +85,7 @@ namespace AppLayer.Controllers
         [HttpPost]
         public ActionResult Edit(BookDTO b)
         {
-            // ONLY ADMIN
+           
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");
@@ -104,11 +104,11 @@ namespace AppLayer.Controllers
             return View(b);
         }
 
-        // ================= DELETE =================
+        
 
         public ActionResult Delete(int id)
         {
-            // ONLY ADMIN
+            
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");

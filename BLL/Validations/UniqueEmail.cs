@@ -8,7 +8,7 @@ namespace BLL.Validations
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            // if empty -> let [Required] handle it
+            
             if (value == null)
             {
                 return ValidationResult.Success;

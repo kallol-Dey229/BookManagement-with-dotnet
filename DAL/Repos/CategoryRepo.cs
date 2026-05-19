@@ -26,10 +26,6 @@ namespace DAL.Repos
 
 
 
-
-
-        //...................
-
         public Category Get(int id)
         {
             return db.Categories.Find(id);

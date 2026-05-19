@@ -24,5 +24,20 @@ namespace DAL.Repos
             return db.Users
                      .FirstOrDefault(x => x.Email == email && x.Password == password);
         }
+
+
+        public List<User> GetUsers()
+        {
+            return db.Users.ToList();
+        }
+
+        public bool DeleteUser(int id)
+        {
+            var user = db.Users.Find(id);
+
+            db.Users.Remove(user);
+
+            return db.SaveChanges() > 0;
+        }
     }
 }

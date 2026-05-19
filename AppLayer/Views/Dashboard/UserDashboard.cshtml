@@ -1,0 +1,44 @@
+﻿<div class="container mt-5">
+
+    <div class="card shadow p-5 text-center">
+
+        <div class="bg-light p-3 rounded mb-4">
+
+            <h3>
+
+                Welcome,
+                @Context.Session.GetString("Name")
+
+            </h3>
+
+        </div>
+
+        <p>
+
+            Browse books and categories
+
+        </p>
+
+        <div class="mt-4">
+
+            <a asp-controller="Book"
+               asp-action="Index"
+               class="btn btn-primary me-3">
+
+                Go To Book List
+
+            </a>
+
+            <a asp-controller="Category"
+               asp-action="Index"
+               class="btn btn-success">
+
+                Go To Category List
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

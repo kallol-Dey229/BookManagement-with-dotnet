@@ -56,14 +56,37 @@ namespace AppLayer.Controllers
                 if (user != null)
                 {
                     HttpContext.Session.SetString("Role", user.Role);
+                    HttpContext.Session.SetString("Name", user.Name);
 
-                    return RedirectToAction("Index", "Category");
+                    if (user.Role == "Admin")
+                    {
+                        return RedirectToAction(
+                            "AdminDashboard",
+                            "Dashboard");
+                    }
+
+                    return RedirectToAction(
+                        "UserDashboard",
+                        "Dashboard");
                 }
 
                 ViewBag.Msg = "Invalid Email or Password";
             }
 
             return View(dto);
+        }
+
+
+
+
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+
+            return RedirectToAction(
+                "Index",
+                "Home");
         }
     }
 }

@@ -1,64 +1,4 @@
-﻿//using AutoMapper;
-//using BLL.DTOs;
-//using DAL.Repos;
-//using System;
-//using System.Collections.Generic;
-//using System.Text;
-
-//namespace BLL.Services
-//{
-//    public class CategoryService
-//    {
-//        CategoryRepo repo;
-//        Mapper mapper;
-//        public CategoryService(CategoryRepo repo)
-//        {
-//            this.repo = repo;
-//            mapper = MapperConfig.GetMapper();
-//        }
-
-//        public List<CategoryDTO> Get()
-//        {
-//            var data = repo.Get();
-//            var res = mapper.Map<List<CategoryDTO>>(data);
-//            return res;
-
-//        }
-//    }
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+﻿
 using AutoMapper;
 using BLL.DTOs;
 using DAL.EF.Tables;
@@ -92,15 +32,6 @@ namespace BLL.Services
         }
 
 
-
-
-
-
-
-
-
-
-        //....................
 
         public CategoryDTO Get(int id)
         {

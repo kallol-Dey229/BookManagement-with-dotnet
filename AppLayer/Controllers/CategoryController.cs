@@ -13,19 +13,19 @@ namespace AppLayer.Controllers
             _categoryService = categoryService;
         }
 
-        // Everyone can see categories
+        
         public IActionResult Index()
         {
             var data = _categoryService.Get();
             return View(data);
         }
 
-        // ================= CREATE =================
+       
 
         [HttpGet]
         public IActionResult Create()
         {
-            // ONLY ADMIN
+            
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");
@@ -37,7 +37,7 @@ namespace AppLayer.Controllers
         [HttpPost]
         public IActionResult Create(CategoryDTO category)
         {
-            // ONLY ADMIN
+           
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");
@@ -56,12 +56,12 @@ namespace AppLayer.Controllers
             return View(category);
         }
 
-        // ================= EDIT =================
+      
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            // ONLY ADMIN
+            
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");
@@ -75,7 +75,7 @@ namespace AppLayer.Controllers
         [HttpPost]
         public IActionResult Edit(CategoryDTO category)
         {
-            // ONLY ADMIN
+            
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");
@@ -94,11 +94,11 @@ namespace AppLayer.Controllers
             return View(category);
         }
 
-        // ================= DELETE =================
+        
 
         public IActionResult Delete(int id)
         {
-            // ONLY ADMIN
+            
             if (HttpContext.Session.GetString("Role") != "Admin")
             {
                 return RedirectToAction("Index");

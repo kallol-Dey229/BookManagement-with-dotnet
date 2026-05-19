@@ -1,0 +1,61 @@
+﻿@model List<BLL.DTOs.UserDTO>
+
+<h2 class="mb-4">
+    Manage Users
+</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var u in Model)
+    {
+        <tr>
+
+            <td>@u.Name</td>
+
+            <td>@u.Email</td>
+
+            <td>@u.Role</td>
+
+            <td>
+
+                <a asp-action="DeleteUser"
+                   asp-route-id="@u.Id"
+                   class="btn btn-danger">
+
+                    Delete
+
+                </a>
+
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div class="mt-4">
+
+    <a asp-controller="Book"
+       asp-action="Index"
+       class="btn btn-primary">
+
+        Book List
+
+    </a>
+
+    <a asp-controller="Category"
+       asp-action="Index"
+       class="btn btn-success">
+
+        Category List
+
+    </a>
+
+</div>
