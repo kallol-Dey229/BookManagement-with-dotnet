@@ -57,6 +57,7 @@ namespace AppLayer.Controllers
                 {
                     HttpContext.Session.SetString("Role", user.Role);
                     HttpContext.Session.SetString("Name", user.Name);
+                    HttpContext.Session.SetString("Email", user.Email);
 
                     if (user.Role == "Admin")
                     {

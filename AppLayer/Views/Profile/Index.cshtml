@@ -1,0 +1,42 @@
+﻿<div class="d-flex justify-content-center">
+
+    <div class="card shadow p-4"
+         style="width:400px; border-radius:15px;">
+
+        <h2 class="text-center mb-4">
+            My Profile
+        </h2>
+
+        <div class="mb-3">
+
+            <strong>Name:</strong>
+
+            <p>
+                @Context.Session.GetString("Name")
+            </p>
+
+        </div>
+
+        <div class="mb-3">
+
+            <strong>Email:</strong>
+
+            <p>
+                @Context.Session.GetString("Email")
+            </p>
+
+        </div>
+
+        <div class="mb-3">
+
+            <strong>Role:</strong>
+
+            <p>
+                @Context.Session.GetString("Role")
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
