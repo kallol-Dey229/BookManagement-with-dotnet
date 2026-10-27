@@ -57,5 +57,10 @@ namespace DAL.Repos
             return db.Books.Where(b => b.Title.Contains(text)).ToList();
         }
 
+        public int GetBookCount()
+        {
+            return db.Books.Count();
+        }
+
     }
 }

@@ -2,56 +2,167 @@
     ViewData["Title"] = "Home";
 }
 
-<div style="
-    background-image:url('https://media.istockphoto.com/id/1503372066/photo/many-books-stacked-with-blurred-background-of-bookstore-full-of-books-photo-with-copyspace.jpg?b=1&s=1024x1024&w=0&k=20&c=PqcCob_mKlHlwxDWIEno-U5JcG5E3DJUanx9v2WbW18=');
-    background-size:cover;
-    background-position:center;
-    height:100vh;
-    position:relative;
-">
+<style>
 
-    
-    <div style="
-        background-color:rgba(0,0,0,0.6);
-        height:100%;
-        width:100%;
-        position:absolute;
-        top:0;
-        left:0;
-    ">
+    body {
+        overflow-x: hidden;
+    }
 
-        
-        <div class="d-flex flex-column justify-content-center align-items-center text-white"
-             style="height:100%;">
+    .home-banner {
+        background: linear-gradient( rgba(16,185,129,.35), rgba(236,253,245,.45) ), url('https://media.istockphoto.com/id/1503372066/photo/many-books-stacked-with-blurred-background-of-bookstore-full-of-books-photo-with-copyspace.jpg?b=1&s=1024x1024&w=0&k=20&c=PqcCob_mKlHlwxDWIEno-U5JcG5E3DJUanx9v2WbW18=');
+        background-size: cover;
+        background-position: center;
+        min-height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
 
-            <h1 style="
-                font-size:70px;
-                font-weight:bold;
-                text-shadow:2px 2px 10px black;">
-                Welcome to the, Book Store
-            </h1>
+    .hero-box {
+        max-width: 900px;
+        text-align: center;
+        background: rgba(255,255,255,.75);
+        backdrop-filter: blur(12px);
+        border-radius: 30px;
+        padding: 60px;
+        box-shadow: 0 15px 40px rgba(0,0,0,.12);
+    }
 
-            <p style="
-                font-size:24px;
-                margin-top:15px;
-                text-shadow:1px 1px 5px black;">
-                Manage Your Books by Categories Easily. Also purchase your favourites.
-            </p>
+    .hero-title {
+        font-size: 4rem;
+        font-weight: 800;
+        color: #14532D;
+        margin-bottom: 20px;
+    }
 
-            <div class="mt-4">
+    .highlight {
+        color: #10B981;
+    }
 
-                <a asp-controller="User"
-                   asp-action="Login"
-                   class="btn btn-primary btn-lg me-3 px-4">
-                    Login
-                </a>
+    .hero-text {
+        font-size: 1.3rem;
+        color: #374151;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
 
-                <a asp-controller="User"
-                   asp-action="Register"
-                   class="btn btn-success btn-lg px-4">
-                    Register
-                </a>
+    .custom-btn {
+        padding: 14px 35px;
+        font-size: 18px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: .3s;
+    }
 
+    .login-btn {
+        background: #2563EB;
+        color: white;
+        margin-right: 15px;
+    }
+
+        .login-btn:hover {
+            background: #1D4ED8;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+    .register-btn {
+        background: #10B981;
+        color: white;
+    }
+
+        .register-btn:hover {
+            background: #059669;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+    .feature-box {
+        margin-top: 45px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .feature-item {
+        background: rgba(16,185,129,.12);
+        border: 1px solid rgba(16,185,129,.2);
+        padding: 15px 25px;
+        border-radius: 15px;
+        color: #14532D;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+        .feature-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.08);
+        }
+
+</style>
+
+
+<div class="home-banner">
+
+    <div class="hero-box">
+
+        <h1 class="hero-title">
+
+            Welcome To
+
+            <span class="highlight">
+                BookVerse
+            </span>
+
+        </h1>
+
+        <p class="hero-text">
+
+            Discover amazing books, organize categories,
+            build your personal collection and enjoy
+            a modern digital bookstore experience.
+
+        </p>
+
+        <div>
+
+            <a asp-controller="User"
+               asp-action="Login"
+               class="custom-btn login-btn">
+
+                Login
+
+            </a>
+
+            <a asp-controller="User"
+               asp-action="Register"
+               class="custom-btn register-btn">
+
+                Register
+
+            </a>
+
+        </div>
+
+        <div class="feature-box">
+
+            <div class="feature-item">
+                📚 Large Book Collection
+            </div>
+
+            <div class="feature-item">
+                🛒 Smart Shopping Cart
+            </div>
+
+            <div class="feature-item">
+                🔍 Fast Search System
+            </div>
+
+            <div class="feature-item">
+                👤 User Profiles
             </div>
 
         </div>

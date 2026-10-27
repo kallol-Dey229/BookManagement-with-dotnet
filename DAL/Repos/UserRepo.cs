@@ -39,5 +39,11 @@ namespace DAL.Repos
 
             return db.SaveChanges() > 0;
         }
+
+
+        public int GetUserCount()
+        {
+            return db.Users.Count();
+        }
     }
 }

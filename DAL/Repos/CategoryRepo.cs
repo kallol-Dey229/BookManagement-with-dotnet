@@ -52,5 +52,11 @@ namespace DAL.Repos
 
             return db.SaveChanges() > 0;
         }
+
+
+        public int GetCategoryCount()
+        {
+            return db.Categories.Count();
+        }
     }
 }

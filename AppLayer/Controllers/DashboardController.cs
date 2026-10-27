@@ -6,10 +6,17 @@ namespace AppLayer.Controllers
     public class DashboardController : Controller
     {
         UserService userService;
+        BookService bookService;
+        CategoryService categoryService;
 
-        public DashboardController(UserService userService)
+        public DashboardController(
+            UserService userService,
+            BookService bookService,
+            CategoryService categoryService)
         {
             this.userService = userService;
+            this.bookService = bookService;
+            this.categoryService = categoryService;
         }
 
         public IActionResult AdminDashboard()
@@ -19,6 +26,12 @@ namespace AppLayer.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            // Statistics
+            ViewBag.TotalUsers = userService.GetUsers().Count;
+            ViewBag.TotalBooks = bookService.Get().Count;
+            ViewBag.TotalCategories = categoryService.Get().Count;
+
+            // User List
             var users = userService.GetUsers();
 
             return View(users);

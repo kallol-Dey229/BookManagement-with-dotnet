@@ -118,5 +118,12 @@ namespace AppLayer.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Details(int id)
+        {
+            var data = bookService.Get(id);
+
+            return View(data);
+        }
     }
 }

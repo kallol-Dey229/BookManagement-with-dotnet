@@ -15,16 +15,32 @@
 
     <style>
 
+        body {
+            background: linear-gradient( 135deg, #ECFDF5, #D1FAE5, #F0FDF4 );
+            min-height: 100vh;
+            color: #1F2937;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
         .custom-navbar {
-            background-color: #E5E7EB;
+            background: linear-gradient( 120deg, #D1FAE5 0%, #ECFCCB 50%, #F0FDF4 100% );
             padding: 15px;
-            box-shadow: 0px 2px 8px rgba(0,0,0,.08);
+            box-shadow: 0px 4px 15px rgba(0,0,0,.06);
+            backdrop-filter: blur(10px);
         }
 
         .navbar-brand {
             font-size: 28px;
             font-weight: bold;
             color: #374151 !important;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.45);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.08);
         }
 
         .nav-link {
@@ -45,6 +61,88 @@
             border-bottom: 3px solid #60A5FA;
         }
 
+
+
+
+        .table {
+            background: rgba(255,255,255,.35) !important;
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid black
+        }
+
+            .table th {
+                background: rgba(16,185,129,.15) !important;
+                color: #1F2937;
+                font-weight: 700;
+
+            }
+
+            .table td {
+                background: rgba(255,255,255,.20) !important;
+                color: #374151;
+            }
+
+            .table tr:hover td {
+                background: rgba(255,255,255,.35) !important;
+            }
+
+
+
+
+
+
+        .form-control {
+            background: rgba(255,255,255,.35) !important;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,.25);
+            color: #1F2937 !important;
+            border-radius: 12px;
+            box-shadow: none !important;
+            border: 1px solid black
+        }
+
+            .form-control:focus {
+                background: rgba(255,255,255,.45) !important;
+                border: 1px solid #10B981;
+                box-shadow: 0 0 10px rgba(16,185,129,.25) !important;
+                color: #111827 !important;
+            }
+
+            .form-control::placeholder {
+                color: #6B7280;
+            }
+
+
+
+            /* footer */
+
+
+
+        .footer {
+            background: linear-gradient( 120deg, #D1FAE5 0%, #ECFCCB 50%, #F0FDF4 100% );
+            padding: 40px 0;
+            margin-top: 80px;
+            border-top: 1px solid #C7D2FE;
+        }
+
+            .footer h4,
+            .footer h5 {
+                color: #14532D;
+                font-weight: 700;
+            }
+
+            .footer p,
+            .footer a {
+                color: #374151;
+                text-decoration: none;
+            }
+
+                .footer a:hover {
+                    color: #10B981;
+                }
+
     </style>
 
 </head>
@@ -62,7 +160,7 @@
                asp-controller="Home"
                asp-action="Index">
 
-                BookStore
+                    BookVerse
 
             </a>
 
@@ -74,7 +172,7 @@
                asp-controller="Dashboard"
                asp-action="AdminDashboard">
 
-                BookStore
+                    BookVerse
 
             </a>
                }
@@ -86,7 +184,7 @@
                    asp-controller="Dashboard"
                    asp-action="UserDashboard">
 
-                    BookStore
+                    BookVerse
 
                 </a>
             }
@@ -175,6 +273,21 @@
 
                         </li>
 
+                        
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Cart" ? "active-link" : "")"
+                               asp-controller="Cart"
+                               asp-action="MyProducts">
+
+                                My Products
+
+                            </a>
+
+                        </li>
+
                         <li class="nav-item">
 
                             <a class="nav-link">
@@ -218,6 +331,8 @@
         @RenderBody()
 
     </div>
+
+    <partial name="_Footer" />
 
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js">

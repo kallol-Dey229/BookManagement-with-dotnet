@@ -13,5 +13,7 @@ public partial class Book
 
     public int Cid { get; set; }
 
-    public string? Image { get; set; }
+    public string Image { get; set; } = null!;
+
+    public string? Description { get; set; }
 }

@@ -16,6 +16,7 @@ builder.Services.AddScoped<UserRepo>();
 builder.Services.AddScoped<BookService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<DashboardService>();
 
 
 

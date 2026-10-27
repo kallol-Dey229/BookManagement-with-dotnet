@@ -1,40 +1,151 @@
 ﻿@model BLL.DTOs.BookDTO
 
-<form asp-action="Create" method="post">
+@{
+    ViewData["Title"] = "Add Book";
+}
 
-    <div class="form-group">
-        <label>Title</label>
-        <input asp-for="Title" class="form-control" />
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card p-5">
+
+                <div class="text-center mb-4">
+
+                    <h1 class="fw-bold"
+                        style="color:#1F2937;">
+
+                        📚 Add New Book
+
+                    </h1>
+
+                    <p style="color:#6B7280;">
+
+                        Fill up the information to add a new book
+
+                    </p>
+
+                </div>
+
+
+                <form asp-action="Create" method="post">
+
+                    <!-- TITLE -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            Book Title
+
+                        </label>
+
+                        <input asp-for="Title"
+                               class="form-control form-control-lg"
+                               placeholder="Enter book title" />
+
+                    </div>
+
+
+                    <!-- PRICE -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            Price
+
+                        </label>
+
+                        <input asp-for="Price"
+                               class="form-control form-control-lg"
+                               placeholder="Enter price" />
+
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            Category Id
+
+                        </label>
+
+                        <input asp-for="Cid"
+                               class="form-control form-control-lg"
+                               placeholder="Enter category id" />
+
+                    </div>
+
+
+                    <!-- IMAGE -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            Image URL
+
+                        </label>
+
+                        <input asp-for="Image"
+                               class="form-control form-control-lg"
+                               placeholder="Paste image url" />
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            Description
+
+                        </label>
+
+                        <textarea asp-for="Description"
+                                  class="form-control"
+                                  rows="5"
+                                  placeholder="Write book description...">
+                        </textarea>
+
+                    </div>
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="d-flex gap-3 mt-4">
+
+                        <button type="submit"
+                                class="btn btn-success px-4 py-2">
+
+                            Create Book
+
+                        </button>
+
+                        <a asp-controller="Book"
+                           asp-action="Index"
+                           class="btn btn-dark px-4 py-2">
+
+                            Back
+
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="form-group">
-        <label>Price</label>
-        <input asp-for="Price" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label>Category Id</label>
-        <input asp-for="Cid" class="form-control" />
-    </div>
-
-    <br />
-
-    <div class="mb-3">
-        <label>Image URL</label>
-        <input asp-for="Image" class="form-control" />
-    </div>
-
-    
-
-    <div class="flex-column">
-        <button type="submit" class="btn btn-primary">
-            Create
-        </button>
-        <a asp-controller="Book"
-           asp-action="Index"
-           class="btn btn-dark">
-            Back
-        </a>
-    </div>
-
-</form>
+</div>
